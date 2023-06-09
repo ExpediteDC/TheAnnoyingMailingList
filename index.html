@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Annoying Mailing List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <style type="text/css">
+    body{
+      background-color: paleturquoise;
+    }
+    .unsubscribe-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+  </style>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-4">Were Are Sorry To Hear This :(</h1>
+      <p class="text-center">You can click the button below to unsubscribe ;) (May not work on mobile devices!)</p>
+      <button class="unsubscribe-button" onmouseover="moveButton();" onclick="moveButton();">Unsubscribe</button>
+    </div>
+    <script type="text/javascript">
+    // JavaScript function to smoothly move the button
+    function moveButton() {
+      var button = document.querySelector('.unsubscribe-button');
+      var windowWidth = window.innerWidth;
+      var windowHeight = window.innerHeight;
+      var buttonWidth = button.offsetWidth;
+      var buttonHeight = button.offsetHeight;
+      var maxOffsetX = windowWidth - buttonWidth;
+      var maxOffsetY = windowHeight - buttonHeight;
+
+      var randomX = Math.floor(Math.random() * maxOffsetX);
+      var randomY = Math.floor(Math.random() * maxOffsetY);
+
+      var animationDuration = 0.2; // Duration in seconds
+      var frameRate = 60; // Frames per second
+      var totalFrames = animationDuration * frameRate;
+      var currentFrame = 0;
+
+      var initialX = parseInt(button.style.left) || 0;
+      var initialY = parseInt(button.style.top) || 0;
+
+      var deltaX = (randomX - initialX) / totalFrames;
+      var deltaY = (randomY - initialY) / totalFrames;
+
+      var moveInterval = setInterval(function() {
+        currentFrame++;
+        if (currentFrame <= totalFrames) {
+          var newX = initialX + deltaX * currentFrame;
+          var newY = initialY + deltaY * currentFrame;
+          button.style.left = newX + 'px';
+          button.style.top = newY + 'px';
+        } else {
+          clearInterval(moveInterval);
+        }
+      }, 1000 / frameRate);
+    }
+    // moveButton();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
