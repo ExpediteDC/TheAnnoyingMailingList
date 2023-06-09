@@ -28,9 +28,10 @@
   <body>
     <div class="container">
       <h1 class="text-center mt-4">Were Are Sorry To Hear This :(</h1>
-      <p class="text-center">You can click the button below to unsubscribe ;) (May not work on mobile devices!)</p>
+      <p class="text-center">You can click the button below to unsubscribe ;) (May not work on mobile devices!) </p>
       <button class="unsubscribe-button" onmouseover="moveButton();" onclick="moveButton();">Unsubscribe</button>
     </div>
+
     <script type="text/javascript">
     // JavaScript function to smoothly move the button
     function moveButton() {
@@ -71,5 +72,14 @@
     // moveButton();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('expedite', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#00b9fe',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
   </body>
 </html>
